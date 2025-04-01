@@ -245,7 +245,7 @@ function Users() {
   const [searchName, setSearchName] = useState("");
   const [filterName, setFilterName] = useState(users);
 
-  const handleSearch = (e) => {
+  const handleSearch = (e : any) => {
     const value = e.target.value;
     setSearchName(value);
 
@@ -257,12 +257,12 @@ function Users() {
 
   return (
     <>
-      <div className="flex flex-col overflow-auto h-full w-full">
+      <div className="flex flex-col overflow-auto h-full w-full mr-6">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.5 }}
-          className="backdrop-blur-2xl bg-gray-800 text-white px-4 sm:px-10 py-2 border-b-2 border-yellow-800 text-yellow-500 uppercase font-bold"
+          className="backdrop-blur-2xl bg-gray-800 text-white px-4 sm:px-10 py-2 border-b-2 border-yellow-800 text-yellow-500 uppercase font-bold sticky top-0 z-10"
         >
           Users
         </motion.h1>

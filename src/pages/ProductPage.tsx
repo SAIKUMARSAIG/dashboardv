@@ -312,7 +312,7 @@ const ProductPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.5 }}
           className="backdrop-blur-2xl bg-gray-800 text-blue-500 px-10 py-2 
-                  border-b-2 border-violet-800 uppercase font-bold text-xl mb-5"
+                  border-b-2 border-violet-800 uppercase font-bold text-xl mb-5 sticky top-0 z-10"
         >
           Products
         </motion.h1>

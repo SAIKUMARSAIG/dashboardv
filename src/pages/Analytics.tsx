@@ -9,7 +9,7 @@ function Analytics() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, delay: 0.5 }}
-        className="backdrop-blur-2xl bg-gray-800 text-white px-10 py-2 border-b-2 border-red-800 text-red-500 uppercase font-bold"
+        className="backdrop-blur-2xl bg-gray-800 text-white px-10 py-2 border-b-2 border-red-800 text-red-500 uppercase font-bold sticky top-0 z-10"
       >
         Analytics
       </motion.h1>

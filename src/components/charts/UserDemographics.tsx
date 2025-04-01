@@ -1,78 +1,3 @@
-// import {
-//   PieChart,
-//   Pie,
-//   Cell,
-//   Tooltip,
-//   ResponsiveContainer,
-//   Legend,
-// } from "recharts";
-// import { motion } from "framer-motion";
-
-// const userDemographicsData = [
-//   { name: "18-24", value: 20 },
-//   { name: "25-34", value: 30 },
-//   { name: "35-44", value: 25 },
-//   { name: "45-54", value: 15 },
-//   { name: "55+", value: 10 },
-// ];
-
-// const COLORS = ["#6366F1", "#22D3EE", "#F472B6", "#FBBF24", "#34D399"];
-
-// function UserDemographics() {
-//   return (
-//     <div className="flex flex-col items-center p-4">
-//       <motion.div
-//         className="w-full bg-gradient-to-r from-gray-800 to-gray-900 
-//                     bg-opacity-90 backdrop-blur-xl p-6 rounded-xl shadow-lg 
-//                     border border-gray-700"
-//         initial={{ opacity: 0, y: 20 }}
-//         animate={{ opacity: 1, y: 0 }}
-//         transition={{ duration: 0.9, delay: 0.5 }}
-//       >
-//         <h2
-//           className="text-2xl font-semibold text-gray-100 mb-4 py-2 text-center 
-//                         uppercase text-purple-400 font-bold"
-//         >
-//           Sales by Category
-//         </h2>
-//         <div className="h-80">
-//           <ResponsiveContainer width="100%" height="100%">
-//             <PieChart>
-//               <Pie
-//                 data={salesByCategory}
-//                 cx="50%"
-//                 cy="50%"
-//                 outerRadius={80}
-//                 fill="#1108ACFF"
-//                 dataKey="value"
-//                 label
-//               >
-//                 {salesByCategory.map((_entry, index) => (
-//                   // <div className="hidden">{entry}</div>
-//                   <Cell
-//                     key={`cell-${index}`}
-//                     fill={COLORS[index % COLORS.length]}
-//                   />
-//                 ))}
-//               </Pie>
-//               <Tooltip
-//                 contentStyle={{ backgroundColor: "#005FE5FF", color: "#fff" }}
-//               />
-//               <Legend
-//                 verticalAlign="bottom"
-//                 iconSize={12}
-//                 wrapperStyle={{ color: "#07295BFF" }}
-//               />
-//             </PieChart>
-//           </ResponsiveContainer>
-//         </div>
-//       </motion.div>
-//     </div>
-//   );
-// }
-
-// export default UserDemographics;
-
 import {
     PieChart,
     Pie,
@@ -125,7 +50,7 @@ import {
   function UserDemographics() {
     const [activeIndex, setActiveIndex] = useState(null);
     
-    const handleMouseEnter = (_, index) => {
+    const handleMouseEnter = (index:any) => {
       setActiveIndex(index);
     };
     
@@ -133,7 +58,16 @@ import {
       setActiveIndex(null);
     };
   
-    const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index, name }) => {
+    const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index, name }:  {
+      cx: number;
+      cy: number;
+      midAngle: number;
+      innerRadius: number;
+      outerRadius: number;
+      percent: number;
+      index: number;
+      name: string;
+    }) => {
       const RADIAN = Math.PI / 180;
       const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
       const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -194,7 +128,7 @@ import {
                   animationBegin={300}
                   animationDuration={1500}
                 >
-                  {userDemographicsData.map((entry, index) => (
+                  {userDemographicsData.map((_entry, index) => (
                     <Cell 
                       key={`cell-${index}`}
                       fill={COLORS[index % COLORS.length]}
@@ -216,7 +150,7 @@ import {
                     padding: "8px 12px",
                     boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
                   }}
-                  formatter={(value) => [`${value} (${((value/totalUsers)*100).toFixed(1)}%)`, "Users"]}
+                  formatter={(value : any) => [`${value} (${((value/totalUsers)*100).toFixed(1)}%)`, "Users"]}
                 />
                 <Legend 
                   verticalAlign="bottom"
