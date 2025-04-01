@@ -127,7 +127,7 @@ function UserGrowth() {
               },
             ]}
             width={500}
-            height={300}
+            height={450}
             sx={{
               backgroundColor: "transparent",
               "& .MuiLineElement-root": { strokeWidth: 3 },

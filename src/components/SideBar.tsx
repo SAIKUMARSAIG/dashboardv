@@ -22,6 +22,7 @@ function SideBar() {
     { name: "Orders", icon: ShoppingCart, color: "4caf50", path: "/orders" },
     { name: "Analytics", icon: ArrowBigRightDashIcon, color: "f44336", path: "/analytics" },
     { name: "Settings", icon: Settings, color: "ffeb3b", path: "/settings" },
+    // { name: "*", icon: User, color: "9c27b0", path: "/logout" },
   ];
 
   const [sidebar, setSideBar] = useState(false); // Start with sidebar collapsed
